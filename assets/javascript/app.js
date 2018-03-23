@@ -4,27 +4,19 @@ $(document).ready(function () {
     var unanswered = 0;
     var intervalId;
     var clockRunning = false;
-    var time = 120;
-
-    // Big kahuna!!
+    var time = 10;
 
     $(".visibility").hide();
-    
-    
-   
 
     $("#start").on("click", function () {
         run();
-
     })
-    //Time functions:
+    
     function run() {
         intervalId = setInterval(decrement, 1000);
-        $("#button").hide();
-
-
+       $("#button").hide();
     }
-    //Decrementing time:
+    
 
     function decrement() {
         time--;
@@ -32,17 +24,23 @@ $(document).ready(function () {
         $(".visibility").show();
         if (time === 0) {
             stop();
-          
-            $("#game").html(html);
-            
-        }
+            check()
+            display();
+       }
     }
-    //stop function:
+   
     function stop() {
         clearInterval(intervalId);
+        
     };
 
     $("#submit").on("click", function () {
+        stop();
+        check()
+        display();
+    });
+
+    function check() {
         if ($("#choice3").is(":checked")) {
             correct++;
         } else if ($("#choice1, #choice2, #choice4").is(":checked")) {
@@ -69,7 +67,7 @@ $(document).ready(function () {
         } else {
             unanswered++;
         };
-        
+
         if ($("#choice16").is(":checked")) {
             correct++;
         } else if ($("#choice13, #choice14, #choice15").is(":checked")) {
@@ -101,13 +99,18 @@ $(document).ready(function () {
         } else {
             unanswered++;
         };
-        /////////////////////////////////////
-        var html =
-    "<h2 class='done'>All Done!</h2>" +
-    "<h2 class='all'>Correct Answers: " + correct + "</h2>" +
-    "<h2 class='all'>Incorrect Answers: " + incorrect + "</h2>" +
-    "<h2 class='all'>Unanswered: " + unanswered + "</h2>";
-        $("#game").html(html);
-    });
+    };
 
+    function display() {
+        var html =
+            "<h2 class='done'>All Done!</h2>" +
+            "<h2 class='all'>Correct Answers: " + correct + "</h2>" +
+            "<h2 class='all'>Incorrect Answers: " + incorrect + "</h2>" +
+            "<h2 class='all'>Unanswered: " + unanswered + "</h2>" + 
+            "<button id='restart'>Restart </button>";
+        $("#game").html(html);
+    };
+    $("#restart").on("click", function() {
+        start();
+    })
 });

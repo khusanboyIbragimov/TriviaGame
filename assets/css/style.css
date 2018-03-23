@@ -5,19 +5,19 @@ body{
     background-size: 100%;
     
 }
-#start{
+#start, #restart{
     width: 400px;
     height: 100px;
     font-size: 40px;
     border-radius: 50px;
     margin: 270px 0px 0px 330px;
 }
-#start, #submit:hover
+#start, #submit, #restart:hover
 {
     cursor: pointer;
     background-color: #57636e;
 }
-#start, #submit:focus{
+#start, #submit, #restart:focus{
     outline: 0;
 }
 #submit{
@@ -77,4 +77,18 @@ input{
     color: #003333;
     text-decoration: underline;
 }
-
+@media screen and (max-width:980px){
+    container{
+        width: 100%;
+    }
+}
+@media screen and (max-width:736px){
+    container{
+        width: 100%;
+    }
+}
+@media screen and (max-width:412px){
+    container{
+        width: 100%;
+    }
+}
