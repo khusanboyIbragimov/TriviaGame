@@ -1,5 +1,4 @@
 body{
-    /* background-color: #eeeeee; */
     margin-bottom: 30px;
     background-image: url("../images/flags-of-the-world.gif");
     background-size: 100%;
@@ -46,7 +45,6 @@ input{
 }
 .grid{
     width: 1060px;
-    /* height: auto; */
     margin: 0 auto;
     background-size: 100%; 
     background-image: url("../images/world.jpg");
@@ -77,18 +75,22 @@ input{
     color: #003333;
     text-decoration: underline;
 }
-@media screen and (max-width:980px){
-    container{
+/* @media screen and (max-width:980px){
+    .grid{
         width: 100%;
+       
+
     }
 }
 @media screen and (max-width:736px){
-    container{
+    .grid{
         width: 100%;
+      
     }
 }
 @media screen and (max-width:412px){
-    container{
+    .grid{
         width: 100%;
+       
     }
-}
+} */

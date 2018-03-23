@@ -4,19 +4,19 @@ $(document).ready(function () {
     var unanswered = 0;
     var intervalId;
     var clockRunning = false;
-    var time = 10;
+    var time = 120;
 
     $(".visibility").hide();
 
     $("#start").on("click", function () {
         run();
-    })
-    
+    });
+
     function run() {
         intervalId = setInterval(decrement, 1000);
-       $("#button").hide();
+        $("#button").hide();
     }
-    
+
 
     function decrement() {
         time--;
@@ -26,12 +26,12 @@ $(document).ready(function () {
             stop();
             check()
             display();
-       }
+        }
     }
-   
+
     function stop() {
         clearInterval(intervalId);
-        
+
     };
 
     $("#submit").on("click", function () {
@@ -44,14 +44,15 @@ $(document).ready(function () {
         if ($("#choice3").is(":checked")) {
             correct++;
         } else if ($("#choice1, #choice2, #choice4").is(":checked")) {
+
             incorrect++;
-            // alert("notugri");
+
         } else {
             unanswered++;
         };
-        //////////////////////////////////
+
         if ($("#choice6").is(":checked")) {
-            // alert("Tugri");
+
             correct++;
         } else if ($("#choice5, #choice7, #choice8").is(":checked")) {
 
@@ -59,7 +60,7 @@ $(document).ready(function () {
         } else {
             unanswered++;
         };
-        //////////////////////////////////////
+
         if ($("#choice9").is(":checked")) {
             correct++;
         } else if ($("#choice10, #choice11, #choice12").is(":checked")) {
@@ -106,11 +107,9 @@ $(document).ready(function () {
             "<h2 class='done'>All Done!</h2>" +
             "<h2 class='all'>Correct Answers: " + correct + "</h2>" +
             "<h2 class='all'>Incorrect Answers: " + incorrect + "</h2>" +
-            "<h2 class='all'>Unanswered: " + unanswered + "</h2>" + 
-            "<button id='restart'>Restart </button>";
+            "<h2 class='all'>Unanswered: " + unanswered + "</h2>";
+
         $("#game").html(html);
     };
-    $("#restart").on("click", function() {
-        start();
-    })
+
 });
